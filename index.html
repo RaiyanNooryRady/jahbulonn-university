@@ -13,7 +13,7 @@
       box-sizing: border-box;
     }
 
-    body {
+    .jahuni-wrapper {
       background: #fff;
       margin: 0;
       height: 100vh;
@@ -84,42 +84,47 @@
 </head>
 <body>
 
-<div class="jahuni-compass-container">
-  <!-- Compass Background -->
-  <div class="jahuni-compass"></div>
+<div class="jahuni-wrapper">
 
-  <!-- Rotating Needle -->
-  <div class="jahuni-needle" id="jahuni-needle"></div>
+    <div class="jahuni-compass-container">
+        <!-- Compass Background -->
+        <div class="jahuni-compass"></div>
+      
+        <!-- Rotating Needle -->
+        <div class="jahuni-needle" id="jahuni-needle"></div>
+      
+        <!-- Circular University Images -->
+        <script>
+          const jahuniNumberOfUniversities = 14;
+          const jahuniRadius = 40; // % of the container
+          const jahuniContainer = document.querySelector('.jahuni-compass-container');
+      
+          for (let i = 0; i < jahuniNumberOfUniversities; i++) {
+            const jahuniAngle = (i / jahuniNumberOfUniversities) * 2 * Math.PI;
+            const jahuniX = 50 + jahuniRadius * Math.cos(jahuniAngle);
+            const jahuniY = 50 + jahuniRadius * Math.sin(jahuniAngle);
+      
+            const jahuniDiv = document.createElement('div');
+            jahuniDiv.className = 'jahuni-university';
+            jahuniDiv.style.left = `${jahuniX}%`;
+            jahuniDiv.style.top = `${jahuniY}%`;
+            jahuniDiv.style.transform = 'translate(-50%, -50%)';
+      
+            jahuniDiv.innerHTML = `<img src="circle.png" alt="University ${i + 1}" />`;
+      
+            jahuniDiv.onclick = () => {
+              document.getElementById('jahuni-needle').style.transform = `translate(-50%, -50%) rotate(${(360 / jahuniNumberOfUniversities) * i}deg)`;
+              alert(`Redirecting to University ${i + 1} page...`);
+              // window.location.href = `/universities/university-${i + 1}`;
+            };
+      
+            jahuniContainer.appendChild(jahuniDiv);
+          }
+        </script>
+      </div>
 
-  <!-- Circular University Images -->
-  <script>
-    const jahuniNumberOfUniversities = 14;
-    const jahuniRadius = 40; // % of the container
-    const jahuniContainer = document.querySelector('.jahuni-compass-container');
-
-    for (let i = 0; i < jahuniNumberOfUniversities; i++) {
-      const jahuniAngle = (i / jahuniNumberOfUniversities) * 2 * Math.PI;
-      const jahuniX = 50 + jahuniRadius * Math.cos(jahuniAngle);
-      const jahuniY = 50 + jahuniRadius * Math.sin(jahuniAngle);
-
-      const jahuniDiv = document.createElement('div');
-      jahuniDiv.className = 'jahuni-university';
-      jahuniDiv.style.left = `${jahuniX}%`;
-      jahuniDiv.style.top = `${jahuniY}%`;
-      jahuniDiv.style.transform = 'translate(-50%, -50%)';
-
-      jahuniDiv.innerHTML = `<img src="circle.png" alt="University ${i + 1}" />`;
-
-      jahuniDiv.onclick = () => {
-        document.getElementById('jahuni-needle').style.transform = `translate(-50%, -50%) rotate(${(360 / jahuniNumberOfUniversities) * i}deg)`;
-        alert(`Redirecting to University ${i + 1} page...`);
-        // window.location.href = `/universities/university-${i + 1}`;
-      };
-
-      jahuniContainer.appendChild(jahuniDiv);
-    }
-  </script>
 </div>
+
 
 </body>
 </html>
