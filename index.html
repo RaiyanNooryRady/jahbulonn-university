@@ -84,34 +84,49 @@
       
         <!-- Circular University Images -->
         <script>
-          const jahuniNumberOfUniversities = 14;
-          const jahuniRadius = 40; // % of the container
-          const jahuniContainer = document.querySelector('.jahuni-compass-container');
-      
-          for (let i = 0; i < jahuniNumberOfUniversities; i++) {
-            const jahuniAngle = (i / jahuniNumberOfUniversities) * 2 * Math.PI;
-            const jahuniX = 50 + jahuniRadius * Math.cos(jahuniAngle);
-            const jahuniY = 50 + jahuniRadius * Math.sin(jahuniAngle);
-      
-            const jahuniDiv = document.createElement('div');
-            jahuniDiv.className = 'jahuni-university';
-            jahuniDiv.style.left = `${jahuniX}%`;
-            jahuniDiv.style.top = `${jahuniY}%`;
-            jahuniDiv.style.transform = 'translate(-50%, -50%)';
-      
-            jahuniDiv.innerHTML = `<img src="circle.png" alt="University ${i + 1}" />`;
-      
-            jahuniDiv.onclick = () => {
-              alert(`Redirecting to University ${i + 1} page...`);
-              // window.location.href = `/universities/university-${i + 1}`;
-            };
-            jahuniDiv.onmouseover = () =>{
-                document.querySelector('#jahuni-compass img').style.transform = 'rotate(45deg)';
+            const jahuniNumberOfUniversities = 14;
+            const jahuniRadius = 40; // % of the container
+            const jahuniContainer = document.querySelector('.jahuni-compass-container');
+          
+            for (let i = 0; i < jahuniNumberOfUniversities; i++) {
+              const jahuniAngle = (i / jahuniNumberOfUniversities) * 2 * Math.PI;
+              const jahuniX = 50 + jahuniRadius * Math.cos(jahuniAngle);
+              const jahuniY = 50 + jahuniRadius * Math.sin(jahuniAngle);
+          
+              const jahuniDiv = document.createElement('div');
+              jahuniDiv.className = 'jahuni-university';
+              jahuniDiv.style.left = `${jahuniX}%`;
+              jahuniDiv.style.top = `${jahuniY}%`;
+              jahuniDiv.style.transform = 'translate(-50%, -50%)';
+          
+              jahuniDiv.innerHTML = `<img src="circle.png" alt="University ${i + 1}" />`;
+          
+              jahuniDiv.onclick = () => {
+                alert(`Redirecting to University ${i + 1} page...`);
+                // window.location.href = `/universities/university-${i + 1}`;
+              };
+          
+              jahuniDiv.onmouseover = () => {
+                const compass = document.querySelector('.jahuni-compass-container');
+                const compassRect = compass.getBoundingClientRect();
+                const uniRect = jahuniDiv.getBoundingClientRect();
+          
+                const compassCenterX = compassRect.left + compassRect.width / 2;
+                const compassCenterY = compassRect.top + compassRect.height / 2;
+          
+                const uniCenterX = uniRect.left + uniRect.width / 2;
+                const uniCenterY = uniRect.top + uniRect.height / 2;
+          
+                const angleRad = Math.atan2(uniCenterY - compassCenterY, uniCenterX - compassCenterX);
+                const angleDeg = angleRad * (180 / Math.PI);
+          
+                document.querySelector('#jahuni-compass-img').style.transform = `rotate(${angleDeg}deg)`;
+              };
+          
+              jahuniContainer.appendChild(jahuniDiv);
             }
-      
-            jahuniContainer.appendChild(jahuniDiv);
-          }
-        </script>
+          </script>
+          
       </div>
 
 </div>
