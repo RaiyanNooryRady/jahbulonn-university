@@ -35,23 +35,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: url('circle.png') no-repeat center center;
       background-size: contain;
       z-index: 1;
     }
-
-    .jahuni-needle {
-      position: absolute;
-      width: 50%;
-      height: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      transform-origin: center center;
-      background: url('needle.png') no-repeat center;
-      background-size: contain;
-      z-index: 2;
-      transition: transform 0.5s ease-in-out;
+    .jahuni-compass img{
+        width: 100%;
+        height: auto;
     }
 
     .jahuni-university {
@@ -88,10 +77,9 @@
 
     <div class="jahuni-compass-container">
         <!-- Compass Background -->
-        <div class="jahuni-compass"></div>
-      
-        <!-- Rotating Needle -->
-        <div class="jahuni-needle" id="jahuni-needle"></div>
+        <div class="jahuni-compass" id="jahuni-compass">
+            <img src="circle.png" alt="">
+        </div>
       
         <!-- Circular University Images -->
         <script>
@@ -113,10 +101,12 @@
             jahuniDiv.innerHTML = `<img src="circle.png" alt="University ${i + 1}" />`;
       
             jahuniDiv.onclick = () => {
-              document.getElementById('jahuni-needle').style.transform = `translate(-50%, -50%) rotate(${(360 / jahuniNumberOfUniversities) * i}deg)`;
               alert(`Redirecting to University ${i + 1} page...`);
               // window.location.href = `/universities/university-${i + 1}`;
             };
+            jahuniDiv.onmouseover = () =>{
+                document.querySelector('#jahuni-compass img').style.transform = 'rotate(45deg)';
+            }
       
             jahuniContainer.appendChild(jahuniDiv);
           }
