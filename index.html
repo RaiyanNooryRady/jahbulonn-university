@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <title>Compass University Selector</title>
   <style>
+    :root {
+      --compass-size: 80vmin;
+      --image-size: 12vmin;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background: #fff;
       margin: 0;
@@ -15,41 +24,44 @@
 
     .compass-container {
       position: relative;
-      width: 500px;
-      height: 500px;
+      width: var(--compass-size);
+      height: var(--compass-size);
     }
 
     .compass {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 50%;
+      height: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: url('circle.png') no-repeat center center;
       background-size: contain;
+      z-index: 1;
     }
 
     .needle {
       position: absolute;
-      width: 200px;
-      height: 200px;
-      background: url('needle.png') no-repeat center;
-      background-size: contain;
-      transform: translate(-50%, -50%) rotate(0deg);
-      transform-origin: center center;
+      width: 50%;
+      height: 50%;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transform-origin: center center;
+      background: url('needle.png') no-repeat center;
+      background-size: contain;
+      z-index: 2;
       transition: transform 0.5s ease-in-out;
     }
 
     .university {
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: var(--image-size);
+      height: var(--image-size);
       border-radius: 50%;
       overflow: hidden;
       cursor: pointer;
+      z-index: 3;
       transition: transform 0.3s;
     }
 
@@ -61,6 +73,12 @@
 
     .university:hover {
       transform: scale(1.1);
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --image-size: 14vmin;
+      }
     }
   </style>
 </head>
@@ -75,21 +93,21 @@
 
   <!-- Circular University Images -->
   <script>
-    const numberOfUniversities = 16;
-    const radius = 200;
+    const numberOfUniversities = 14;
+    const radius = 40; // % of the container
     const container = document.querySelector('.compass-container');
 
     for (let i = 0; i < numberOfUniversities; i++) {
       const angle = (i / numberOfUniversities) * 2 * Math.PI;
-      const x = radius * Math.cos(angle);
-      const y = radius * Math.sin(angle);
+      const x = 50 + radius * Math.cos(angle);
+      const y = 50 + radius * Math.sin(angle);
 
       const div = document.createElement('div');
       div.className = 'university';
-      div.style.left = 50 + x / 5 + '%';
-      div.style.top = 50 + y / 5 + '%';
+      div.style.left = `${x}%`;
+      div.style.top = `${y}%`;
+      div.style.transform = 'translate(-50%, -50%)';
 
-      // You can replace src with actual university images
       div.innerHTML = `<img src="circle.png" alt="University ${i+1}" />`;
 
       div.onclick = () => {
