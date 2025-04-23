@@ -1,1 +1,107 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compass University Selector</title>
+  <style>
+    body {
+      background: #fff;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .compass-container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+    }
+
+    .compass {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('circle.png') no-repeat center center;
+      background-size: contain;
+    }
+
+    .needle {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: url('needle.png') no-repeat center;
+      background-size: contain;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transform-origin: center center;
+      top: 50%;
+      left: 50%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .university {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .university img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .university:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="compass-container">
+  <!-- Compass Background -->
+  <div class="compass"></div>
+
+  <!-- Rotating Needle -->
+  <div class="needle" id="needle"></div>
+
+  <!-- Circular University Images -->
+  <script>
+    const numberOfUniversities = 16;
+    const radius = 200;
+    const container = document.querySelector('.compass-container');
+
+    for (let i = 0; i < numberOfUniversities; i++) {
+      const angle = (i / numberOfUniversities) * 2 * Math.PI;
+      const x = radius * Math.cos(angle);
+      const y = radius * Math.sin(angle);
+
+      const div = document.createElement('div');
+      div.className = 'university';
+      div.style.left = 50 + x / 5 + '%';
+      div.style.top = 50 + y / 5 + '%';
+
+      // You can replace src with actual university images
+      div.innerHTML = `<img src="circle.png" alt="University ${i+1}" />`;
+
+      div.onclick = () => {
+        document.getElementById('needle').style.transform = `translate(-50%, -50%) rotate(${(360 / numberOfUniversities) * i}deg)`;
+        alert(`Redirecting to University ${i + 1} page...`);
+        // window.location.href = `/universities/university-${i+1}`;
+      };
+
+      container.appendChild(div);
+    }
+  </script>
+</div>
+
+</body>
+</html>
