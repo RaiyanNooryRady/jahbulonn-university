@@ -1,0 +1,66 @@
+:root {
+    --jahuni-compass-size: 80vmin;
+    --jahuni-image-size: 12vmin;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .jahuni-wrapper {
+    background: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .jahuni-compass-container {
+    position: relative;
+    width: var(--jahuni-compass-size);
+    height: var(--jahuni-compass-size);
+  }
+
+  .jahuni-compass {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    z-index: 1;
+  }
+  .jahuni-compass img{
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease-in-out;
+  }
+
+  .jahuni-university {
+    position: absolute;
+    width: var(--jahuni-image-size);
+    height: var(--jahuni-image-size);
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.3s;
+  }
+
+  .jahuni-university img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .jahuni-university:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --jahuni-image-size: 14vmin;
+    }
+  }
