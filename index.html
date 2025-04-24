@@ -182,11 +182,6 @@
           
               jahuniDiv.innerHTML = `<a href="${jahuniUniversityList[i].slug}"><img src="${jahuniUniversityList[i].image}" alt="University ${i + 1}" /></a>`;
           
-              // jahuniDiv.onclick = () => {
-              //   alert(`Redirecting to University ${i + 1} page...`);
-              //   // window.location.href = `/universities/university-${i + 1}`;
-              // };
-          
               jahuniDiv.onmouseover = () => {
                 const compass = document.querySelector('.jahuni-compass-container');
                 const compassRect = compass.getBoundingClientRect();
