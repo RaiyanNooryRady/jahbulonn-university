@@ -118,7 +118,7 @@
                 const uniCenterY = uniRect.top + uniRect.height / 2;
           
                 const angleRad = Math.atan2(uniCenterY - compassCenterY, uniCenterX - compassCenterX);
-                const angleDeg = angleRad * (180 / Math.PI);
+                const angleDeg = angleRad * (170 / Math.PI)-40;
           
                 document.querySelector('#jahuni-compass-img').style.transform = `rotate(${angleDeg}deg)`;
               };
