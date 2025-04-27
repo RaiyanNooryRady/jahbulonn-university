@@ -1,88 +1,91 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+
 //  University object
 const jahuniUniversityList = [
   {
     name: "The University of Split",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/university-of-split/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_7.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_7.jpeg",
   },
   {
     name: "Karlsuniversität Prag",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/charles-university-prague/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_3.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_3.jpeg",
   },
   {
     name: "Pomeranian Medical University",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/pomeranian-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_8.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_8.jpeg",
   },
   {
     name: "AFMKU",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/andrzej-frycz-modrzewskiuniversity/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_9.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_9.jpeg",
   },
   {
     name: "Humanitas University",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/humanitas-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_6.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_6.jpeg",
   },
   {
     name: "Stradins University Riga",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/stradins-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_14.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_14.jpeg",
   },
   {
     name: "MU Cluj-Napoca",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/cluj-napoca-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_11.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_11.jpeg",
   },
   {
     name: "MU Victor Babes",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/victor-babes-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_10.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_10.jpeg",
   },
   {
     name: 'UNI Bukarest "Carol Davila"',
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/carol-davila-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_12.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_12.jpeg",
   },
   {
     name: "Medical University of Varna",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/university-of-varna/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_13.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_13.jpeg",
   },
   {
     name: "Comenius University",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/comenius-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_1-1.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_1.jpeg",
   },
   {
     name: "Jessenius University",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/jessenius-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_2.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_2.jpeg",
   },
   {
     name: "Semmelweis Universität",
     slug: "https://jahbulonn.mdazizurrahman.online/universities-/semmelweis-university/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_4.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_4.jpeg",
   },
   {
     name: "MU Pecs",
     slug: "hhttps://jahbulonn.mdazizurrahman.online/universities-/university-of-pecs/",
     image:
-      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_5.png",
+      "https://jahbulonn.mdazizurrahman.online/wp-content/uploads/2025/04/Screenshot_5.jpeg",
   },
 ];
 
@@ -132,3 +135,5 @@ for (let i = 0; i < jahuniNumberOfUniversities; i++) {
 
   jahuniContainer.appendChild(jahuniDiv);
 }
+
+});
